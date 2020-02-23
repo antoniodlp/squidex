@@ -28,7 +28,7 @@
 
 <div class="row">
     <div class="col">
-        <button type="button" class="btn btn-success" [disabled]="field.nested.length === 0 || arrayControl.disabled" (click)="itemAdd(undefined)">
+        <button type="button" class="btn btn-success" [disabled]="field.nested.length === 0 || arrayControl.disabled" (click)="itemAdd(undefined)" translate>
             Add Item
         </button>
     </div>
@@ -43,6 +43,6 @@
     </div>
 </div>
 
-<small class="text-muted ml-2" *ngIf="field.nested.length === 0">
-    Add a nested field first to add items.
+<small class="text-muted ml-2" *ngIf="field.nested.length === 0" translate>
+    Add a nested field first to add items
 </small>

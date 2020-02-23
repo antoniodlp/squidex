@@ -2,10 +2,10 @@
     <sqx-modal-dialog (close)="emitComplete()">
         <ng-container title>
             <ng-container *ngIf="assetFolder; else noAssetFolder">
-                Rename Folder
+                {{ 'Rename Folder' | translate }} 
             </ng-container>
             <ng-template #noAssetFolder>
-                Create Folder
+                {{ 'Create Folder' | translate }} 
             </ng-template>
         </ng-container>
 
@@ -13,7 +13,7 @@
             <sqx-form-error [error]="editForm.error | async"></sqx-form-error>
         
             <div class="form-group">
-                <label for="folderName">Folder Name <small class="hint">(required)</small></label>
+                <label for="folderName">{{ 'Folder Name' | translate }} <small class="hint">({{ 'required' | translate }})</small></label>
                 
                 <sqx-control-errors for="folderName" submitOnly="true" [submitted]="editForm.submitted | async"></sqx-control-errors>
         
@@ -22,20 +22,20 @@
 
             <div class="form-group">
                 <sqx-form-alert marginTop="2" marginBottom="0">
-                    The folder name is used as display name and must not be unique.
+                    {{ 'The folder name is used as display name and must not be unique' | translate }}
                 </sqx-form-alert>
             </div>
         </ng-container>
 
         <ng-container footer>
-            <button type="reset" class="float-left btn btn-secondary" (click)="emitComplete()">Cancel</button>
+            <button type="reset" class="float-left btn btn-secondary" (click)="emitComplete()" translate>Cancel</button>
             
             <button type="submit" class="float-right btn btn-success">
                 <ng-container *ngIf="assetFolder; else noAssetFolderButton">
-                    Rename
+                    {{ 'Rename' | translate }} 
                 </ng-container>
                 <ng-template #noAssetFolderButton>
-                    Create
+                    {{ 'Create' | translate }} 
                 </ng-template>
             </button>
         </ng-container>

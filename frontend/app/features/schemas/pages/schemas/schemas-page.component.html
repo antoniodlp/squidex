@@ -2,7 +2,7 @@
 
 <sqx-panel theme="dark" desiredWidth="30rem" showSecondHeader="true">
     <ng-container title>
-        Schemas
+        {{ 'Schemas' | translate }}
     </ng-container>
     
     <ng-container secondHeader>
@@ -19,7 +19,7 @@
         </ng-container>
         
         <div class="search-form">
-            <input class="form-control form-control-dark" #inputFind [formControl]="schemasFilter" placeholder="Search for schemas..." />
+            <input class="form-control form-control-dark" #inputFind [formControl]="schemasFilter" placeholder="{{ 'Search for schemas'| translate }}..." />
 
             <i class="icon-search"></i>
         </div>

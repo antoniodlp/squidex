@@ -11,7 +11,6 @@
 </ng-container>
 
 <ng-template #noQuery>
-    <div class="sidebar-item inactive text-muted" *ngIf="canRemove">
-        Search for {{types}} and use <i class="icon-star-empty"></i> icon in search form to save query for all contributors.
+    <div class="sidebar-item inactive text-muted" *ngIf="canRemove" [innerHtml]="'Search for and use star icon in search form to save query for all contributors' | translate:{ types: types || '' }">
     </div>
 </ng-template>

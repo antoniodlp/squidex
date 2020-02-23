@@ -11,11 +11,11 @@
         <div class="event-created">{{event.created | sqxFromNow}}</div>
 
         <ng-container *ngIf="canLoadOrCompare">
-            <a class="event-load force" (click)="dataLoad.emit()">Load</a> 
+            <a class="event-load force" (click)="dataLoad.emit()">{{ 'Load' | translate }}</a> 
             
             &middot; 
 
-            <a class="event-load force" (click)="dataCompare.emit()">Compare</a> 
+            <a class="event-load force" (click)="dataCompare.emit()">{{ 'Compare' | translate }}</a> 
         </ng-container>
     </div>
 </div>

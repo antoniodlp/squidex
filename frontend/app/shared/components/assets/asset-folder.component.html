@@ -16,7 +16,7 @@
                     <ng-container *sqxModal="dropdown;closeAlways:true">
                         <div class="dropdown-menu" [sqxAnchoredTo]="buttonOptions" @fade>  
                             <ng-container *ngIf="canUpdate">
-                                <a class="dropdown-item" (click)="editDialog.show()">
+                                <a class="dropdown-item" (click)="editDialog.show()" translate>
                                     Rename
                                 </a>
                         
@@ -27,7 +27,7 @@
                                 [class.disabled]="!canDelete"
                                 (sqxConfirmClick)="delete.emit()"
                                 confirmTitle="Delete folder" 
-                                confirmText="Do you really want to delete the folder and all assets?">
+                                confirmText="{{ 'Do you really want to delete the folder and all assets?' | translate }}" translate>
                                 Delete
                             </a>
                         </div>

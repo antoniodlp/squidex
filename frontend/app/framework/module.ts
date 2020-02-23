@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ColorPickerModule  } from 'ngx-color-picker';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 import {
     AnalyticsService,
@@ -100,12 +100,15 @@ import {
     TransformInputDirective
 } from './declarations';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
     imports: [
         ColorPickerModule,
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TranslateModule
     ],
     declarations: [
         AutocompleteComponent,
@@ -254,7 +257,8 @@ import {
         TitleComponent,
         ToggleComponent,
         TooltipDirective,
-        TransformInputDirective
+        TransformInputDirective,
+        TranslateModule
     ]
 })
 export class SqxFrameworkModule {

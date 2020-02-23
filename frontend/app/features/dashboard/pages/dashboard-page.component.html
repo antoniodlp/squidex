@@ -4,23 +4,22 @@
     <div class="dashboard" @fade>
         <div class="dashboard-inner">
             <div>
-                <h1 class="dashboard-title">Hi {{authState.user?.displayName}}</h1>
+                <h1 class="dashboard-title">{{ 'Hi' | translate }} {{authState.user?.displayName}}</h1>
 
-                <div class="subtext">
-                    Welcome to <strong>{{app.displayName}}</strong> dashboard.
+                <div class="subtext" [innerHTML]="'Welcome to the app dashboard' | translate:{appDisplayName: app.displayName}">
                 </div>
             </div>
 
-            <div class="clearfix">
+            <div class="clearfix" *ngIf="app.canCreateSchema">
                 <a class="card card-href" [routerLink]="['schemas', { showDialog: true }]" *ngIf="app.canCreateSchema">
                     <div class="card-body">
                         <div class="card-image">
                             <img src="./images/dashboard-schema.svg" />
                         </div>
 
-                        <h4 class="card-title">New Schema</h4>
+                        <h4 class="card-title" translate>New Schema</h4>
 
-                        <div class="card-text">
+                        <div class="card-text" translate="A schema defines the structure of your content element">
                             A schema defines the structure of your content element.
                         </div>
                     </div>

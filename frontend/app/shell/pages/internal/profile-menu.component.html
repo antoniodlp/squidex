@@ -18,24 +18,24 @@
 <ng-container *sqxModal="modalMenu;closeAlways:true;onRoot:false">
     <div class="dropdown-menu" [sqxAnchoredTo]="button" [offset]="10" @fade>
         <a class="dropdown-item dropdown-info" [sqxPopupLink]="snapshot.profileUrl">
-            <div>Signed in with</div>
+            <div translate>Signed in with</div>
     
             <strong>{{snapshot.profileEmail}}</strong>
         </a>
         
         <div class="dropdown-divider"></div>
 
-        <a class="dropdown-item" routerLink="/app/administration" *ngIf="uiState.canUserAdminResource | async">
+        <a class="dropdown-item" routerLink="/app/administration" *ngIf="uiState.canUserAdminResource | async" translate>
             Administration
         </a>
 
-        <a class="dropdown-item" [sqxPopupLink]="snapshot.profileUrl">
+        <a class="dropdown-item" [sqxPopupLink]="snapshot.profileUrl" translate>
             Profile
         </a>
 
         <div class="dropdown-divider"></div>
 
-        <a class="dropdown-item" (click)="logout()" sqxExternalLink>
+        <a class="dropdown-item" (click)="logout()" sqxExternalLink translate>
             Logout
         </a>
     </div>

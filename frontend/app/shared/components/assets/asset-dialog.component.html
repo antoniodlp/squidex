@@ -55,7 +55,7 @@
                         <sqx-form-error [error]="annotateForm.error | async"></sqx-form-error>
             
                         <div class="form-group">
-                            <label for="fileName">Name</label>
+                            <label for="fileName" translate>Name</label>
                             
                             <sqx-control-errors for="fileName" [submitted]="annotateForm.submitted | async"></sqx-control-errors>
                     
@@ -63,19 +63,19 @@
                         </div>
                     
                         <div class="form-group">
-                            <label for="slug">Slug</label>
+                            <label for="slug" translate>Slug</label>
                             
                             <sqx-control-errors for="slug" [submitted]="annotateForm.submitted | async"></sqx-control-errors>
                     
                             <input type="text" class="form-control slug" id="slug" formControlName="slug" sqxTransformInput="Slugify" spellcheck="false" />
             
-                            <button type="button" class="btn btn-text-secondary btn-sm slug-generate" (click)="generateSlug()">
+                            <button type="button" class="btn btn-text-secondary btn-sm slug-generate" (click)="generateSlug()" translate>
                                 Generate
                             </button>
                         </div>
                     
                         <div class="form-group">
-                            <label>Tags</label>
+                            <label translate>Tags</label>
                             
                             <sqx-control-errors for="tags" [submitted]="annotateForm.submitted | async"></sqx-control-errors>
             
@@ -83,7 +83,7 @@
                         </div>
             
                         <div class="form-group">
-                            <label>Metadata</label>
+                            <label translate>Metadata</label>
             
                             <div class="form-group row no-gutters" *ngFor="let form of annotateForm.metadata.controls; let i = index">
                                 <div class="col col-name pr-1">
@@ -110,7 +110,7 @@
                             </div>
             
                             <div class="form-group">
-                                <button type="button" class="btn btn-success" (click)="annotateForm.addMetadata()" [disabled]="!isEditable">
+                                <button type="button" class="btn btn-success" (click)="annotateForm.addMetadata()" [disabled]="!isEditable" translate>
                                     Add Metadata
                                 </button>
                             </div>
@@ -119,7 +119,7 @@
                         <div class="form-group form-check">
                             <input type="checkbox" class="form-check-input" id="isProtected" formControlName="isProtected" />
             
-                            <label class="form-check-label" for="isProtected">Protected</label>
+                            <label class="form-check-label" for="isProtected" translate>Protected</label>
                         </div>
                     </div>
                 </ng-container>

@@ -4,20 +4,19 @@
             <img alt="Logo" class="login-icon login-element" src="./images/logo.png" />
 
             <div>
-                <button type="button" class="btn btn-success btn-lg login-button login-element" (click)="login()">
+                <button type="button" class="btn btn-success btn-lg login-button login-element" (click)="login()" translate>
                     Login to Squidex
                 </button>
             </div>
 
-            <div class="login-info login-element" *ngIf="!isIE()">
-                The login button will open a new popup. Once you are logged in successful we will redirect you to the Squidex management portal.
+            <div class="login-info login-element" *ngIf="!isIE()" translate>
+                Login button info
             </div>
         </div>
 
         <div class="login-arms"></div>
     </div>
 
-    <div class="proudly-made">
-        Proudly made by<br /> Qaisar Ahmad &amp; Sebastian Stehle, 2016-2018
+    <div class="proudly-made" [innerHTML]="'proudly-made' | translate">
     </div>
 </div>

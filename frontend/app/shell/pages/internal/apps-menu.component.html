@@ -6,7 +6,7 @@
             </ng-container>
 
             <ng-template #noApp>
-                Apps Overview
+                {{ 'Apps Overview' | translate }}
             </ng-template>
         </span>
 
@@ -14,7 +14,7 @@
             <ng-container *sqxModal="appsMenu;closeAlways:true;onRoot:false">
                 <div class="dropdown-menu" [sqxAnchoredTo]="button" position="bottom-left" @fade>
                     <a class="dropdown-item all-apps" routerLink="/app">
-                        <span class="all-apps-text">All Apps</span> 
+                        <span class="all-apps-text" translate>All Apps</span> 
                         <span class="all-apps-pill badge badge-pill badge-primary">{{apps.length}}</span>
                     </a>
         
@@ -31,7 +31,7 @@
         
                         <div class="dropdown-button">
                             <button type="button" class="btn btn-block btn-success" (click)="addAppDialog.show()">
-                                <i class="icon-plus"></i> Create New App
+                                <i class="icon-plus"></i> {{ 'Create New App' | translate }}
                             </button>
                         </div>
                     </ng-container>
@@ -46,7 +46,7 @@
                 <button type="button" class="btn btn-primary btn-plan">
                     You are on the <strong>{{app.planName}}</strong> plan.
                 </button>
-                <button type="button" class="btn btn-warning" [routerLink]="['/app', app.name, 'settings', 'plans']">
+                <button type="button" class="btn btn-warning" [routerLink]="['/app', app.name, 'settings', 'plans']" translate>
                     Upgrade!
                 </button>
             </div>

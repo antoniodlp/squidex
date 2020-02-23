@@ -2,7 +2,7 @@
 
 <sqx-panel desiredWidth="*" minWidth="50rem" showSidebar="true" grid="true">
     <ng-container title>
-        Contents
+        {{ 'Contents' | translate }} 
     </ng-container>
 
     <ng-container menu>
@@ -11,11 +11,11 @@
                 <sqx-shortcut keys="ctrl+shift+r" (trigger)="reload()"></sqx-shortcut>
 
                 <button type="button" class="btn btn-text-secondary" (click)="reload()" title="Refresh Contents (CTRL + SHIFT + R)">
-                    <i class="icon-reset"></i> Refresh
+                    <i class="icon-reset"></i> {{ 'Refresh' | translate }} 
                 </button>
             </div>
             <div class="col pl-1">
-                <sqx-search-form formClass="form" placeholder="Fulltext search"
+                <sqx-search-form formClass="form" placeholder="{{ 'Fulltext search' | translate }}"
                     (queryChange)="search($event)"
                     [query]="contentsState.contentsQuery | async"
                     [queries]="queries"
@@ -29,7 +29,7 @@
             </div>
             <div class="col-auto pl-1">
                 <button type="button" class="btn btn-success" #newButton routerLink="new" title="New Content (CTRL + SHIFT + G)" [disabled]="(contentsState.canCreateAny | async) === false">
-                    <i class="icon-plus"></i> New
+                    <i class="icon-plus"></i> {{ 'New' | translate }} 
                 </button>
                 
                 <sqx-shortcut keys="ctrl+shift+g" (trigger)="newButton.click()"></sqx-shortcut>
@@ -42,7 +42,7 @@
             <sqx-list-view [isLoading]="contentsState.isLoading | async" syncedHeader="true" table="true">
                 <ng-container topHeader>
                     <div class="selection" *ngIf="selectionCount > 0">
-                        {{selectionCount}} items selected&nbsp;&nbsp;
+                        {{selectionCount}} {{ 'items selected' | translate }} &nbsp;&nbsp;
             
                         <button type="button" class="btn btn-outline-secondary btn-status mr-1" *ngFor="let status of nextStatuses | sqxKeys" (click)="changeSelectedStatus(status)">
                             <sqx-content-status layout="text"
@@ -53,9 +53,9 @@
                         
                         <button type="button" class="btn btn-danger" *ngIf="selectionCanDelete"
                             (sqxConfirmClick)="deleteSelected()"
-                            confirmTitle="Delete content" 
-                            confirmText="Do you really want to delete the selected content items?">
-                            Delete
+                            confirmTitle="{{ 'Delete content' | translate }}" 
+                            confirmText="{{ 'Do you really want to delete the selected content items?' | translate }}">
+                            {{ 'Delete' | translate }} 
                         </button>
                     </div>
 
@@ -84,7 +84,7 @@
                                     <input type="checkbox" class="form-check" [ngModel]="selectedAll" (ngModelChange)="selectAll($event)" />
                                 </th>
                                 <th class="cell-actions cell-actions-left">
-                                    Actions
+                                    {{ 'Actions' | translate }} 
                                 </th>
                                 <th *ngFor="let field of listFields" [sqxContentListCell]="field">
                                     <sqx-content-list-header

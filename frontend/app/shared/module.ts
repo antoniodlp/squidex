@@ -10,6 +10,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MentionModule } from 'angular-mentions';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { SqxFrameworkModule } from '@app/framework';
 
@@ -123,7 +124,8 @@ import { SearchService } from './services/search.service';
         DragDropModule,
         MentionModule,
         RouterModule,
-        SqxFrameworkModule
+        SqxFrameworkModule,
+        TranslateModule
     ],
     declarations: [
         AppFormComponent,
@@ -209,7 +211,8 @@ import { SearchService } from './services/search.service';
         UserNamePipe,
         UserNameRefPipe,
         UserPicturePipe,
-        UserPictureRefPipe
+        UserPictureRefPipe,
+        TranslateModule
     ],
     providers: [
         AssetsDialogState

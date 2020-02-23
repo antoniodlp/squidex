@@ -3,7 +3,7 @@
 <sqx-panel theme="dark" [desiredWidth]="width" [showClose]="!isCollapsed" showSecondHeader="true">
     <ng-container title>
         <ng-container *ngIf="!isCollapsed">
-            Schemas
+            {{ 'Content' | translate }}
         </ng-container>
     </ng-container>
 
@@ -21,7 +21,7 @@
             <sqx-shortcut keys="ctrl+shift+f" (trigger)="inputFind.focus()"></sqx-shortcut>
 
             <div class="search-form">
-                <input class="form-control form-control-dark" #inputFind [formControl]="schemasFilter" placeholder="Search for schemas" />
+                <input class="form-control form-control-dark" #inputFind [formControl]="schemasFilter" placeholder="{{ 'Search for schemas'| translate }}" />
 
                 <i class="icon-search"></i>
             </div>
@@ -40,7 +40,7 @@
         </div>
 
         <div class="headline" [class.hidden]="!isCollapsed">
-            Schemas
+            {{ 'Content' | translate }}
         </div>
     </ng-container>
 </sqx-panel>

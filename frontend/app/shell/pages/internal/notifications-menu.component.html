@@ -11,8 +11,8 @@
 <ng-container *sqxModal="modalMenu;onRoot:false">
     <div class="dropdown-menu" [scrollTop]="scrollMe.scrollHeight" [sqxAnchoredTo]="button" [offset]="10" @fade #scrollMe>
         <ng-container *ngIf="commentsState.comments | async; let comments">
-            <small class="text-muted" *ngIf="comments.length === 0">
-                No notifications yet.
+            <small class="text-muted" *ngIf="comments.length === 0" translate>
+                No notifications yet
             </small>
 
             <sqx-comment *ngFor="let comment of comments; trackBy: trackByComment"

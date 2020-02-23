@@ -38,8 +38,8 @@
                         <ng-container *ngIf="!isDisabled">
                             <a class="file-delete ml-2" *ngIf="!removeMode && asset.canDelete"
                                 (sqxConfirmClick)="delete.emit()"
-                                confirmTitle="Delete asset" 
-                                confirmText="Do you really want to delete the asset?">
+                                confirmTitle="{{ 'Delete asset' | translate }}" 
+                                confirmText="{{ 'Do you really want to delete the asset?' | translate }}">
                                 <i class="icon-delete"></i>
                             </a>
 
@@ -65,7 +65,7 @@
         
                 <div class="drop-overlay align-items-center justify-content-center">
                     <div class="drop-overlay-background"></div>
-                    <div class="drop-overlay-text">Drop to update</div>
+                    <div class="drop-overlay-text" translate>Drop to update</div>
                 </div>
             </div>
 
@@ -141,8 +141,8 @@
                     <td class="col-actions text-right" *ngIf="!isDisabled">
                         <button type="button" class="btn btn-text-danger" *ngIf="!removeMode && asset.canDelete"
                             (sqxConfirmClick)="remove.emit()"
-                            confirmTitle="Delete asset" 
-                            confirmText="Do you really want to delete the asset?">
+                            confirmTitle="{{ 'Delete asset' | translate }}" 
+                            confirmText="{{ 'Do you really want to delete the asset?' | translate }}">
                             <i class="icon-bin2"></i>
                         </button>
 
@@ -155,7 +155,7 @@
 
         <div class="drop-overlay align-items-center justify-content-center">
             <div class="drop-overlay-background"></div>
-            <div class="drop-overlay-text">Drop to update</div>
+            <div class="drop-overlay-text" translate>Drop to update</div>
         </div>
         </ng-container>
 

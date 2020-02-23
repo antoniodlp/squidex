@@ -29,6 +29,7 @@ import {
 
 import { AppsState } from './apps.state';
 import { Query } from './query';
+import { TranslateService } from '@ngx-translate/core';
 
 export type AssetPathItem = { id: string, folderName: string };
 
@@ -135,7 +136,8 @@ export class AssetsState extends State<Snapshot> {
         private readonly appsState: AppsState,
         private readonly assetsService: AssetsService,
         private readonly dialogs: DialogService,
-        private readonly localStore: LocalStoreService
+        private readonly localStore: LocalStoreService,
+        private readonly translate: TranslateService
     ) {
         super({
             assetFolders: [],
@@ -184,7 +186,7 @@ export class AssetsState extends State<Snapshot> {
         return forkJoin(([assets$, assetFolders$, tags$])).pipe(
             tap(([assets, assetFolders, tagsAvailable]) => {
                 if (isReload) {
-                    this.dialogs.notifyInfo('Assets reloaded.');
+                    this.dialogs.notifyInfo(this.translate.instant('Assets reloaded'));
                 }
 
                 this.next(s => ({

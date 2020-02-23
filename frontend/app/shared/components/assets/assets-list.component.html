@@ -1,17 +1,17 @@
 <div class="file-drop" (sqxDropFile)="addFiles($event)" *ngIf="!isDisabled && (state.canCreate | async)">
-    <h3 class="file-drop-header">Drop files here to upload</h3>
+    <h3 class="file-drop-header" translate>Drop files here to upload</h3>
 
-    <div class="file-drop-or">or</div>
+    <div class="file-drop-or" translate>or</div>
 
     <div class="file-drop-button">
         <span class="btn btn-success" (click)="fileInput.click()">
-            <span>Select File(s)</span>
+            <span translate>Select File(s)</span>
 
             <input class="file-drop-button-input" type="file" (change)="addFiles($event.target.files)" #fileInput multiple />
         </span>
     </div>
 
-    <div class="file-drop-info">Drop file on existing item to replace the asset with a newer version.</div>
+    <div class="file-drop-info">{{ 'Drop file on existing item to replace the asset with a newer version' | translate }}.</div>
 </div>
 
 <sqx-list-view [isLoading]="(state.isLoading | async) && indicateLoading" overflow="true">
@@ -19,7 +19,7 @@
         <div cdkDropListGroup>
             <div class="folders" *ngIf="state.pathAvailable | async">
                 <ng-container *ngIf="(state.assetFolders | async)?.length > 0 || (state.parentFolder | async)">
-                    <h5>Folders</h5>
+                    <h5 translate>Folders</h5>
                 </ng-container>
         
                 <div class="row no-gutters">
@@ -55,7 +55,7 @@
         
             <ng-container *ngIf="state.assets | async; let assets">
                 <ng-container *ngIf="assets.length > 0 || newFiles.length > 0">
-                    <h5>Files</h5>
+                    <h5 translate>Files</h5>
                 </ng-container>
                 
                 <div class="row no-gutters" [class.unrow]="isListView" *ngIf="state.tagsNames | async; let tags" (paste)="addFiles($event)"

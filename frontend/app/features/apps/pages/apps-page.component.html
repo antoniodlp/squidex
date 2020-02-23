@@ -1,17 +1,16 @@
 ﻿<sqx-title message="Apps"></sqx-title>
 
 <div class="apps-section">
-    <h1 class="apps-title">Hi {{authState.user?.displayName}}</h1>
+    <h1 class="apps-title">{{ 'Hi' | translate }} {{authState.user?.displayName}}</h1>
 
-    <div class="subtext">
-        Welcome to  Squidex.
+    <div class="subtext" translate="Welcome to Squidex">
     </div>
 </div>
 
 <ng-container *ngIf="appsState.apps | async; let apps">
     <div class="apps-section">
         <div class="empty" *ngIf="apps.length === 0">
-            <h3 class="empty-headline">You are not collaborating to any app yet</h3>
+            <h3 class="empty-headline" translate>You are not collaborating to any app yet</h3>
         </div>
 
         <div class="card card-href card-app" *ngFor="let app of apps; trackBy: trackByApp" [routerLink]="['/app', app.name]">
@@ -24,13 +23,12 @@
                         <h3 class="card-title">{{app.displayName}}</h3>
 
                         <div class="card-text card-links">
-                            <a [routerLink]="['/app', app.name]" sqxStopClick>Edit</a>
+                            <a [routerLink]="['/app', app.name]" sqxStopClick translate>Edit</a>
 
                             <span class="deeplinks">
                                 &nbsp;|
-                                <a [routerLink]="['/app', app.name, 'content']" sqxStopClick>Content</a> &middot;
-                                <a [routerLink]="['/app', app.name, 'assets']" sqxStopClick>Assets</a> &middot;
-                                <a [routerLink]="['/app', app.name, 'settings']" sqxStopClick>Settings</a>
+                                <a [routerLink]="['/app', app.name, 'content']" sqxStopClick translate>Content</a> &middot;
+                                <a [routerLink]="['/app', app.name, 'assets']" sqxStopClick translate>Assets</a>
                             </span>
                         </div>
 
@@ -51,10 +49,9 @@
                 <img src="./images/add-app.svg" />
             </div>
 
-            <h3 class="card-title">New App</h3>
+            <h3 class="card-title"translate>New App</h3>
 
-            <div class="card-text">
-                Create a new blank app without content and schemas.
+            <div class="card-text" translate="Create a new blank app without content and schemas">
             </div>
         </div>
     </div>

@@ -1,10 +1,10 @@
 <sqx-panel desiredWidth="20rem" isBlank="true" [isLazyLoaded]="false">
     <ng-container title>
-        Filters
+        {{ 'Filters' | translate }}
     </ng-container>
 
     <ng-container content>
-        <h3>Tags</h3>
+        <h3 translate>Tags</h3>
 
         <sqx-asset-tags
             (reset)="resetTags()"

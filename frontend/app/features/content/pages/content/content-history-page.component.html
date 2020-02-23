@@ -1,13 +1,13 @@
 <sqx-panel desiredWidth="20rem" isBlank="true" [isLazyLoaded]="false">
     <ng-container title>
-        Workflow
+        {{ 'Workflow' | translate }} 
     </ng-container>
 
     <ng-container content>
         <ng-container *ngIf="!schema.isSingleton">
             <div class="section mb-4" *ngIf="content.canDraftCreate || content.canDraftDelete">
                 <ng-container *ngIf="!content.newStatus; else newVersion">
-                    <button class="btn btn-success btn-block" (click)="createDraft() ">
+                    <button class="btn btn-success btn-block" (click)="createDraft() " translate>
                         New Draft
                     </button>
                 </ng-container>
@@ -28,7 +28,7 @@
                         <div class="dropdown-menu" [sqxAnchoredTo]="buttonOptions" @fade>
                             <ng-container *ngIf="content.statusUpdates.length > 0">
                                 <a class="dropdown-item" *ngFor="let info of content.statusUpdates" (click)="changeStatus(info.status)">
-                                    Change to <i class="icon-circle icon-sm" [style.color]="info.color"></i> {{info.status}}
+                                    {{ 'Change to' | translate }} <i class="icon-circle icon-sm" [style.color]="info.color"></i> {{info.status}}
                                 </a>
         
                                 <div class="dropdown-divider"></div>
@@ -37,9 +37,9 @@
                             <a class="dropdown-item dropdown-item-delete"
                                 [class.disabled]="!content.canDraftDelete"
                                 (sqxConfirmClick)="deleteDraft()"
-                                confirmTitle="Delete content"
-                                confirmText="Do you really want to delete this version?">
-                                Delete this Version
+                                confirmTitle="{{ 'Delete content' | translate }}"
+                                confirmText="{{ 'Do you really want to delete this version?' | translate }}">
+                                {{ 'Delete this Version' | translate }}
                             </a>
     
                             <div class="dropdown-divider"></div>
@@ -47,9 +47,9 @@
                             <a class="dropdown-item dropdown-item-delete"
                                 [class.disabled]="!content.canDelete"
                                 (sqxConfirmClick)="delete()"
-                                confirmTitle="Delete content"
-                                confirmText="Do you really want to delete the content?">
-                                Delete
+                                confirmTitle="{{ 'Delete content' | translate }}"
+                                confirmText="{{ 'Do you really want to delete the content?' | translate }}">
+                                {{ 'Delete' | translate }} 
                             </a>
                         </div>
                     </ng-container>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="section">
-                <label>Current Version</label>
+                <label translate>Current Version</label>
 
                 <div *ngIf="!content.newStatus; else newStatusOld">
                     <button type="button" class="btn btn-outline-secondary btn-block btn-status" (click)="dropdown.toggle()" [class.active]="dropdown.isOpen | async" #buttonOptions>
@@ -73,7 +73,7 @@
                         <div class="dropdown-menu" [sqxAnchoredTo]="buttonOptions" @fade>
                             <ng-container *ngIf="content.statusUpdates.length > 0">
                                 <a class="dropdown-item" *ngFor="let info of content.statusUpdates" (click)="changeStatus(info.status)">
-                                    Change to 
+                                    {{ 'Change to' | translate }}
                                     
                                     <sqx-content-status small="true"
                                         layout="text"
@@ -88,9 +88,9 @@
                             <a class="dropdown-item dropdown-item-delete"
                                 [class.disabled]="!content.canDelete"
                                 (sqxConfirmClick)="delete()"
-                                confirmTitle="Delete content"
-                                confirmText="Do you really want to delete the content?">
-                                Delete
+                                confirmTitle="{{ 'Delete content' | translate }}"
+                                confirmText="{{ 'Do you really want to delete the content?' | translate }}">
+                                {{ 'Delete' | translate }} 
                             </a>
                         </div>
                     </ng-container>
@@ -107,13 +107,13 @@
                 </ng-template>
 
                 <sqx-form-hint marginTop="1">
-                    Last Updated: {{content.lastModified | sqxFromNow}}
+                    {{ 'Last Updated' | translate }}: {{content.lastModified | sqxFromNow}}
                 </sqx-form-hint>
             </div>
         </ng-container>
 
         <div class="section">
-            <h3 class="bordered" *ngIf="!schema.isSingleton">History</h3>
+            <h3 class="bordered" *ngIf="!schema.isSingleton" translate>History</h3>
     
             <sqx-content-event *ngFor="let event of contentEvents | async; trackBy: trackByEvent"
                 [content]="content" 
