@@ -1,0 +1,10 @@
+.login-arms {
+    display: none;
+}
+.icon-logo {
+    display: none;
+}
+.navbar-brand {
+    background: #fff url(images/logo-squared-120.png) center center no-repeat !important;
+    background-size: contain !important;
+}
